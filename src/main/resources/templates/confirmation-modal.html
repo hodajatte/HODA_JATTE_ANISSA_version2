@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Confirmation de demande</title>
+    <link rel="stylesheet" href="ListeDemandes/confirmation-modal.css" />
+</head>
+<body>
+<!-- confirmation-modal.html -->
+<div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="hideConfirmationModal()">&times;</span>
+        <h2>Confirmation</h2>
+        <p>Etes-vous sûr de vouloir <span id="actionButtonLabel"></span> cette demande de stage ?</p>
+        <form method="post" id="confirmationForm">
+            <!-- Ajoutez ici les éléments pour choisir les dates de début et de fin de stage -->
+            <label for="date_Debut">Date de début de stage:</label>
+            <input type="date" id="date_Debut" name="date_Debut" required><br>
+            <label for="date_Fin">Date de fin de stage:</label>
+            <input type="date" id="date_Fin" name="date_Fin" required><br>
+
+            <button type="submit" id="actionButton"></button>
+            <button type="button" onclick="hideConfirmationModal()">Annuler</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
