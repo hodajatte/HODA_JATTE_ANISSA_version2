@@ -6,7 +6,9 @@ function showConfirmationModal(action, demandeId) {
 
     if (action === 'Accepter') {
         actionButton.textContent = 'Accepter';
+
         form.action = '/demande/' + demandeId + '/accepter';
+        
         // Affichage de la fenêtre modale uniquement pour le bouton "Accepter"
         modal.style.display = 'block';
     }

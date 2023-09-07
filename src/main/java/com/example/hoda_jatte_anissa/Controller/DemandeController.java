@@ -82,9 +82,12 @@ public class DemandeController {
             }
 
             demandeService.saveDemande(demande);
+
             /* model.addAttribute("notification", true);*/ // Vous pouvez ajouter cet attribut pour activer la notification côté vue
             /*return "/demandeStage";*/
            return  "redirect:/demandeStage?success=true";
+
+
 
         } catch (IOException e) {
             // Gérer l'exception en conséquence (par exemple, afficher un message d'erreur)
