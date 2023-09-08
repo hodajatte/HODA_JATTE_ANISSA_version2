@@ -41,15 +41,9 @@
 
 
    <link rel="stylesheet" type="text/css" href="Formulaire/formulaire.css">
-<<<<<<< HEAD
-=======
+
    <script src="Formulaire/formulaireJs.js"></script>
->>>>>>> 0c9e73948f1246548a07728e220d05794bdd3e3b
 
-
-
-
-<<<<<<< HEAD
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -57,9 +51,7 @@
 
 
 
-=======
-      <-- ... (other meta tags and stylesheets) ... -->
->>>>>>> 0c9e73948f1246548a07728e220d05794bdd3e3b
+==
    <!-- jQuery -->
    <!--
    <script src="js/jquery.min.js"></script>
@@ -172,11 +164,8 @@
                   <div class="right_topbar">
                      <div class="icon_info">
                         <ul>
-<<<<<<< HEAD
-
-=======
-                           <li ><a href="#"  id="notificationIcon" ><i class="fa fa-bell-o"></i><span class="badge" id="notificationBadge"></span></a></li>
->>>>>>> 0c9e73948f1246548a07728e220d05794bdd3e3b
+<<                 <li ><a href="#"  id="notificationIcon" ><i class="fa fa-bell-o"></i><span class="badge" id="notificationBadge"></span></a></li>
+>>
                            <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge" >3</span></a></li>
                         </ul>
                         <ul class="user_profile_dd">
@@ -210,11 +199,9 @@
                   </div>
                </div>
 
-<<<<<<< HEAD
-               <div id="successAlert" class="alert alert-success" style="display: none;">Votre demande a bien été enregistrée.</div>
-=======
 
->>>>>>> 0c9e73948f1246548a07728e220d05794bdd3e3b
+               <div id="successAlert" class="alert alert-success" style="display: none;">Votre demande a bien été enregistrée.</div>
+
 
                <div class="main">
                   <section class="signup">
@@ -328,14 +315,14 @@
                                     </div>
 
 
-<<<<<<< HEAD
+
                            </form>
 
                            <!-- Afficher la notification si l'attribut "notification" est présent -->
 
                            <!-- Ajoutez ceci à votre fichier DemandeStage.html -->
 
-=======
+
 
                            </form>
 
@@ -346,7 +333,7 @@
                                  <button class="close-notification" onclick="closeNotification()">Fermer</button>
                               </div>
                            </div>
->>>>>>> 0c9e73948f1246548a07728e220d05794bdd3e3b
+
                         </div>
                    </div>
                   </section>
@@ -767,12 +754,10 @@ notificationBox.style.display = "none";
 </script>
 !-->
 
-<<<<<<< HEAD
+
 <!-- Assurez-vous que jQuery est inclus dans votre page -->
 
 <!-- Votre code JavaScript -->
-=======
->>>>>>> 0c9e73948f1246548a07728e220d05794bdd3e3b
 
 
 
@@ -784,13 +769,9 @@ notificationBox.style.display = "none";
 
 
 
-
-
-<<<<<<< HEAD
 
 <!--
-=======
->>>>>>> 0c9e73948f1246548a07728e220d05794bdd3e3b
+
 <script>
    document.addEventListener("DOMContentLoaded", function () {
       const notificationIcon = document.getElementById("notificationIcon");
@@ -826,17 +807,31 @@ notificationBox.style.display = "none";
 ----!-->
 
 <script>
-   $(document).ready(function () {
+   /*$(document).ready(function () {
       // Code JavaScript pour afficher l'alerte de succès
       if (window.location.href.indexOf("success=true") > -1) {
          $("#successAlert").show();
       }
    });
+   function closeNotification() {
+      // Ciblez l'élément avec la classe notification-box et masquez-le
+      $(".notification-box").hide();
+   }*/
+   $(document).ready(function () {
+      // Code JavaScript pour afficher l'alerte de succès
+      if (window.location.href.indexOf("success=true") > -1) {
+         $("#successAlert").show();
+
+         // Ajouter un délai de 2 secondes avant de masquer l'alerte
+         setTimeout(function () {
+            $("#successAlert").hide();
+         }, 2000); // 2000 millisecondes équivalent à 2 secondes
+      }
+   });
+
+
+
 </script>
-=======
-
-
->>>>>>> 0c9e73948f1246548a07728e220d05794bdd3e3b
 
 
 

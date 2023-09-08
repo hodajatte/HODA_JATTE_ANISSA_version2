@@ -21,10 +21,10 @@ public class AuthController {
         this.userService = userService;
     }
 
-   @GetMapping("/confirmation")
+   /*@GetMapping("/confirmation")
     public String conf(){
         return "confirmation";
-    }
+    }*/
 
    /* @GetMapping("/index1")
     public String Index1(){

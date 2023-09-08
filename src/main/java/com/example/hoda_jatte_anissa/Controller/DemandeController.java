@@ -87,14 +87,11 @@ public class DemandeController {
             /*return "/demandeStage";*/
            return  "redirect:/demandeStage?success=true";
 
-
-
         } catch (IOException e) {
             // Gérer l'exception en conséquence (par exemple, afficher un message d'erreur)
             model.addAttribute("error", "Une erreur s'est produite lors du traitement des fichiers.");
             return "DemandeStage"; // Retourner à la page du formulaire avec le message d'erreur
         }
-
     }
 
     private String generateUniqueFileName(String originalFileName) {
