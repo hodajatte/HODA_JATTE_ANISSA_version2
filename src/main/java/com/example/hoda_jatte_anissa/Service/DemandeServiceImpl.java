@@ -1,18 +1,17 @@
 package com.example.hoda_jatte_anissa.Service;
-
 import com.example.hoda_jatte_anissa.Entity.Demande;
 import com.example.hoda_jatte_anissa.Entity.DemandeEtat;
+import com.example.hoda_jatte_anissa.Repository.DemandeEtatRepository;
 import com.example.hoda_jatte_anissa.Repository.DemandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.List;
+
 
 @Service
 public class DemandeServiceImpl implements DemandeService {
@@ -22,10 +21,14 @@ public class DemandeServiceImpl implements DemandeService {
     @Autowired
     private DemandeRepository demandeRepository;
 
+    @Autowired
+    private DemandeEtatRepository demandeEtatRepository;
+
     @Override
     public List<Demande> getAllDemandes() {
         return demandeRepository.findAll();
     }
+
 
     @Override
     public void saveDemande(Demande demande) {
@@ -43,16 +46,15 @@ public class DemandeServiceImpl implements DemandeService {
     }
 
     @Override
-    public void accepterDemande(Long demandeId, LocalDate date_Debut, LocalDate date_Fin) {
+    public void accepterDemande(Long demandeId) {
         Demande demande = demandeRepository.findById(demandeId).orElse(null);
         if (demande != null) {
             // Mettez à jour les dates et l'état de la demande
-            demande.setDateDebut(date_Debut);
-            demande.setDateFin(date_Fin);
             DemandeEtat etat = new DemandeEtat();
             etat.setEtat("Acceptée");
             etat.setDemande(demande);
             demande.getEtats().add(etat);
+            // Enregistrez les dates de début et de fin de stage
             demandeRepository.save(demande);
         }
     }
@@ -80,6 +82,31 @@ public class DemandeServiceImpl implements DemandeService {
             demandeRepository.save(demande);
         }
     }
+
+    @Override
+    public List<DemandeEtat> getDemandesAcceptees() {
+        return demandeEtatRepository.findByEtat("Acceptée");
+    }
+
+    @Override
+    public List<DemandeEtat> getDemandesRefusees() {
+        return demandeEtatRepository.findByEtat("Refusée");
+    }
+
+    @Override
+    public List<DemandeEtat> getDemandesEnAttente() {
+        return demandeEtatRepository.findByEtat("En attente");
+    }
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public Resource loadCVFile(Demande demande) {

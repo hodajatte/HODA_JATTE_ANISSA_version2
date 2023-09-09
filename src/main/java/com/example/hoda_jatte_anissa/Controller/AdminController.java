@@ -1,5 +1,6 @@
 package com.example.hoda_jatte_anissa.Controller;
 import com.example.hoda_jatte_anissa.Service.DemandeService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
@@ -9,37 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 @Controller
 public class AdminController {
     @Autowired
     private DemandeService demandeService;
-
-    /*@GetMapping("/demande/{demandeId}/download-cv")
-
-    @GetMapping("/demande/{demandeId}/download-cv")
-
-    public ResponseEntity<Resource> downloadCV(@PathVariable Long demandeId) {
-        Demande demande = demandeService.getDemandeById(demandeId);
-        Resource cvFile = demandeService.loadCVFile(demande);
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + cvFile.getFilename() + "\"")
-                .body(cvFile);
-    }
-
-    @GetMapping("/demande/{demandeId}/download-lettre")
-    public ResponseEntity<Resource> downloadLettre(@PathVariable Long demandeId) {
-        Demande demande = demandeService.getDemandeById(demandeId);
-        Resource lettreFile = demandeService.loadLettreFile(demande);
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + lettreFile.getFilename() + "\"")
-                .body(lettreFile);
-
-    }*/
-
-
     @GetMapping("/demandes")
     public String listDemandes(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -53,8 +32,8 @@ public class AdminController {
     }
 
     @PostMapping("/demande/{demandeId}/accepter")
-    public String accepterDemande(@PathVariable Long demandeId, LocalDate date_Debut, LocalDate date_Fin) {
-        demandeService.accepterDemande(demandeId, date_Debut, date_Fin);
+    public String accepterDemande(@PathVariable Long demandeId) {
+        demandeService.accepterDemande(demandeId);
         return "redirect:/demandes";
     }
 
@@ -69,6 +48,4 @@ public class AdminController {
         demandeService.mettreEnAttente(demandeId);
         return "redirect:/demandes";
     }
-
-
 }

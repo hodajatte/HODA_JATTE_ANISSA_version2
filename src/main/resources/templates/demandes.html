@@ -9,8 +9,6 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <!-- site metas -->
   <title>Liste des Demandes</title>
-  <!-- lien js confirmation-->
-  <script th:src="@{/js/confirmation.js}"></script>
 
   <meta name="keywords" content="">
   <meta name="description" content="">
@@ -37,6 +35,17 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+
+  <!-- Inclure jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Inclure Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Inclure Bootstrap JavaScript (assurez-vous de l'inclure après jQuery) -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 </head>
 <body class="dashboard dashboard_1">
 <div class="full_container">
@@ -168,6 +177,7 @@
             <table class="fl-table">
               <thead>
               <tr>
+                <th>Id</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Email</th>
@@ -175,13 +185,12 @@
                 <th>Etablissement</th>
                 <th>Date Début</th>
                 <th>Date Fin</th>
-                <th>Cv</th>
-                <th>Lettre Motivation</th>
                 <th>Actions</th>
               </tr>
               </thead>
               <tbody>
               <tr th:each="demande :${demandes}">
+                <td th:text="${demande.id}"></td>
                 <td th:text="${demande.nom}"></td>
                 <td th:text="${demande.prenom}"></td>
                 <td th:text="${demande.email}"></td>
@@ -189,21 +198,28 @@
                 <td th:text="${demande.etablissement}"></td>
                 <td th:text="${demande.dateDebut}"></td>
                 <td th:text="${demande.dateFin}"></td>
-                <td><a th:href="@{/admin/demande/{demandeId}/download-cv(demandeId=${demande.id})}">Télécharger CV</a></td>
-                <td><a th:href="@{/admin/demande/{demandeId}/download-lettre(demandeId=${demande.id})}">Télécharger Lettre</a></td>
 
-                <td colspan="3">
-                  <form th:action="@{/admin/demande/{demandeId}/accepter(demandeId=${demande.id})}" method="post">
-                    <button class="button button-accept" type="button" onclick="showConfirmationModal('Accepter', ${demande.id})">Accepter</button>
-                  </form>
-                  <form th:action="@{/admin/demande/{demandeId}/refuser(demandeId=${demande.id})}" method="post">
-                    <button  class="button button-reject" type="submit">Refuser</button>
-                  </form>
-                  <form th:action="@{/admin/demande/{demandeId}/attente(demandeId=${demande.id})}" method="post">
-                    <button class="button button-pending" type="submit">Mettre en Attente</button>
-                  </form>
+                <td >
+                  <table>
+                    <tr>
+                      <td>
+                        <form th:action="@{/demande/{demandeId}/accepter(demandeId=${demande.id})}" method="post">
+                          <button class="button button-accept" type="submit">Accepter</button>
+                        </form>
+                      </td>
+                      <td>
+                        <form th:action="@{/demande/{demandeId}/refuser(demandeId=${demande.id})}" method="post">
+                          <button class="button button-reject" type="submit">Refuser</button>
+                        </form>
+                      </td>
+                      <td>
+                        <form th:action="@{/demande/{demandeId}/attente(demandeId=${demande.id})}" method="post">
+                          <button class="button button-pending" type="submit">Mettre en Attente</button>
+                        </form>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
-
               </tr>
               <!-- Ajoutez d'autres lignes similaires ici -->
               </tbody>
