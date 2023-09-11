@@ -50,7 +50,7 @@ public class AdminController {
         return "redirect:/demandes";
     }
 
-    /*@GetMapping("/demandes-acceptees")
+    @GetMapping("/demandes-acceptees")
     public String getDemandesAcceptees(Model model) {
       Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userRole = authentication.getAuthorities().iterator().next().getAuthority();
@@ -64,6 +64,12 @@ public class AdminController {
     }
     @GetMapping("/demandes-refusees")
     public String getDemandesRefusees(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
         List<DemandeEtat> demandesRefusees = demandeService.getDemandesRefusees();
         model.addAttribute("demandesRefusees", demandesRefusees);
         return "demandes_refusees";
@@ -71,8 +77,14 @@ public class AdminController {
 
     @GetMapping("/demandes-en-attente")
     public String getDemandesEnAttente(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
         List<DemandeEtat> demandesEnAttente = demandeService.getDemandesEnAttente();
         model.addAttribute("demandesEnAttente", demandesEnAttente);
         return "demandes_en_attente";
-    }*/
+    }
 }
