@@ -1,4 +1,5 @@
 package com.example.hoda_jatte_anissa.Controller;
+import com.example.hoda_jatte_anissa.Entity.DemandeEtat;
 import com.example.hoda_jatte_anissa.Service.DemandeService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.Authentication;
@@ -48,4 +49,30 @@ public class AdminController {
         demandeService.mettreEnAttente(demandeId);
         return "redirect:/demandes";
     }
+
+    /*@GetMapping("/demandes-acceptees")
+    public String getDemandesAcceptees(Model model) {
+      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
+        List<DemandeEtat> demandesAcceptees = demandeService.getDemandesAcceptees();
+        model.addAttribute("demandesAcceptees", demandesAcceptees);
+        return "demandes_acceptees";
+    }
+    @GetMapping("/demandes-refusees")
+    public String getDemandesRefusees(Model model) {
+        List<DemandeEtat> demandesRefusees = demandeService.getDemandesRefusees();
+        model.addAttribute("demandesRefusees", demandesRefusees);
+        return "demandes_refusees";
+    }
+
+    @GetMapping("/demandes-en-attente")
+    public String getDemandesEnAttente(Model model) {
+        List<DemandeEtat> demandesEnAttente = demandeService.getDemandesEnAttente();
+        model.addAttribute("demandesEnAttente", demandesEnAttente);
+        return "demandes_en_attente";
+    }*/
 }

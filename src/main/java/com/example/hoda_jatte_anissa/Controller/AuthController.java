@@ -64,7 +64,7 @@ public class AuthController {
     }*/
 
     ///Liste Demande Acceptées//
-    @GetMapping("/ListeDemandeAcceptées")
+    /*@GetMapping("/demandes-acceptees")
     public String Liste_demande_Acceptées(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userRole = authentication.getAuthorities().iterator().next().getAuthority();
@@ -73,8 +73,8 @@ public class AuthController {
         model.addAttribute("userRole", userRole);
         model.addAttribute("username", username);
 
-        return "ListeDemandeAcceptées";
-    }
+        return "demandes-acceptees";
+    }*/
 
 
     @GetMapping("/dashboard_2")

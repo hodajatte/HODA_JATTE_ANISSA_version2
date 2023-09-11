@@ -3465,6 +3465,10 @@ table.projects tr td:first-child {
 
 /* ... (existing CSS rules) ... */
 
+/* Ajoutez ces styles CSS à votre feuille de style existante */
+.title {
+    margin-left: 10px; /* Ajustez la valeur selon l'espace souhaité */
+}
 
 
 
