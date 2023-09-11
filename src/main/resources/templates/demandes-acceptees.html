@@ -186,41 +186,20 @@
                                 <th>Etablissement</th>
                                 <th>Date Début</th>
                                 <th>Date Fin</th>
-                                <th>Actions</th>
+                                <th>Etat</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="demande :${demandes}">
-                                <td th:text="${demande.id}"></td>
-                                <td th:text="${demande.nom}"></td>
-                                <td th:text="${demande.prenom}"></td>
-                                <td th:text="${demande.email}"></td>
-                                <td th:text="${demande.filiere}"></td>
-                                <td th:text="${demande.etablissement}"></td>
-                                <td th:text="${demande.dateDebut}"></td>
-                                <td th:text="${demande.dateFin}"></td>
-
-                                <td >
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <form th:action="@{/demande/{demandeId}/accepter(demandeId=${demande.id})}" method="post">
-                                                    <button class="button button-accept" type="submit">Accepter</button>
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <form th:action="@{/demande/{demandeId}/refuser(demandeId=${demande.id})}" method="post">
-                                                    <button class="button button-reject" type="submit">Refuser</button>
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <form th:action="@{/demande/{demandeId}/attente(demandeId=${demande.id})}" method="post">
-                                                    <button class="button button-pending" type="submit">Mettre en Attente</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
+                            <tr th:each="etat : ${demandesAcceptees}">
+                                <td th:text="${etat.demande.id}"></td>
+                                <td th:text="${etat.demande.nom}"></td>
+                                <td th:text="${etat.demande.prenom}"></td>
+                                <td th:text="${etat.demande.email}"></td>
+                                <td th:text="${etat.demande.filiere}"></td>
+                                <td th:text="${etat.demande.etablissement}"></td>
+                                <td th:text="${etat.demande.dateDebut}"></td>
+                                <td th:text="${etat.demande.dateFin}"></td>
+                                <td th:text="${etat.etat}"></td>
                             </tr>
                             <!-- Ajoutez d'autres lignes similaires ici -->
                             </tbody>

@@ -60,7 +60,7 @@ public class AdminController {
         model.addAttribute("username", username);
         List<DemandeEtat> demandesAcceptees = demandeService.getDemandesAcceptees();
         model.addAttribute("demandesAcceptees", demandesAcceptees);
-        return "demandes_acceptees";
+        return "demandes-acceptees";
     }
     @GetMapping("/demandes-refusees")
     public String getDemandesRefusees(Model model) {
@@ -72,7 +72,7 @@ public class AdminController {
         model.addAttribute("username", username);
         List<DemandeEtat> demandesRefusees = demandeService.getDemandesRefusees();
         model.addAttribute("demandesRefusees", demandesRefusees);
-        return "demandes_refusees";
+        return "demandes-refusees";
     }
 
     @GetMapping("/demandes-en-attente")
@@ -85,6 +85,6 @@ public class AdminController {
         model.addAttribute("username", username);
         List<DemandeEtat> demandesEnAttente = demandeService.getDemandesEnAttente();
         model.addAttribute("demandesEnAttente", demandesEnAttente);
-        return "demandes_en_attente";
+        return "demandes-en-attente";
     }
 }
