@@ -3283,7 +3283,7 @@ table.projects tr td:first-child {
     position: relative;
 }
 
-.logo_login::after {
+/*.logo_login::after {
     content: "";
     display: block;
     width: 100%;
@@ -3292,7 +3292,22 @@ table.projects tr td:first-child {
     background: #66CDAA;
     top: 0px;
     left: 0;
+}*/
+
+
+.logo_login {
+    background-image: url('images/authentification.jpg');
+    background-size: cover; /* Ajustez la taille de l'image en fonction de la largeur du contenu */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #66CDAA; /* Couleur de fond verte */
+    width: 100%; /* Ajustez la largeur en fonction de vos besoins */
+    height: 1000%; /* Ajustez la hauteur en fonction de vos besoins */
+    position: relative; /* Vous n'avez pas besoin de position absolue ici */
 }
+
+
+
 
 .logo_login div {
     position: relative;

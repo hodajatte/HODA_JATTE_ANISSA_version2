@@ -64,6 +64,7 @@ public class SpringSecurity {
                                 .requestMatchers("/js/bootstrap-select.js").permitAll()
                                 .requestMatchers("/js/perfect-scrollbar.min.js").permitAll()
                                 .requestMatchers("/js/custom.js").permitAll()
+                                .requestMatchers("images/authentification.jpg").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
