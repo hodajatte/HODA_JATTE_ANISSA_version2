@@ -1,5 +1,4 @@
 package com.example.hoda_jatte_anissa.Controller;
-
 import com.example.hoda_jatte_anissa.Entity.Demande;
 import com.example.hoda_jatte_anissa.Service.DemandeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,11 +27,6 @@ public class DemandeController {
     @Value("${upload.path}")
     private String uploadPath;
 
-    /*@GetMapping("/DemandeStageInfo")
-    public String demandestage(Model model) {
-        // ... (le reste de votre code inchangé)
-        return "demandeStage";
-    }*/
 
     @GetMapping("/demandeStage")
     public String showDemandeForm(Model model) {

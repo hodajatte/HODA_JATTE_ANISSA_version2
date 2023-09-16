@@ -87,4 +87,21 @@ public class AdminController {
         model.addAttribute("demandesEnAttente", demandesEnAttente);
         return "demandes-en-attente";
     }
+
+    @GetMapping("/rechercher-demandes")
+    public String rechercherDemandesParNom(@RequestParam(name = "nom") String nomRecherche, Model model) {
+        List<Demande> resultatsRecherche = demandeService.rechercherDemandesParNom(nomRecherche);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
+        model.addAttribute("resultatsRecherche", resultatsRecherche);
+
+        return "resultats";
+    }
+
+
 }

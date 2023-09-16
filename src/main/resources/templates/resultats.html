@@ -37,7 +37,7 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+  <link rel="stylesheet" href="css/msgCSS.css" />
 
   <!-- Inclure jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -173,105 +173,81 @@
             <div class="col-md-12">
               <div class="page_title">
 
-
-                <form   action="/rechercher-demandes" method="GET">
-                  <div>
-                    <input type="text"   name="nom" placeholder="Rechercher...">
-                    <!-- Ajouter l'icône de recherche à l'intérieur du bouton -->
-                    <button type="submit" class="btn-search">
-                      <i class="fas fa-search"></i> Rechercher
-                    </button>
+                <div th:if="${#lists.isEmpty(resultatsRecherche)}" class="centered-content">
+                  <div class="message-container">
+                    <span class="message">"Aucun résultat trouvé pour la recherche!"</span>
                   </div>
-                </form>
                 </div>
-
-
-                </div>
-
               </div>
+
+
             </div>
-          </div>
-          <!-- Liste Demande -->
-          <div class="table-wrapper">
-            <table class="fl-table">
-              <thead>
-              <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Email</th>
-                <th>filière</th>
-                <th>Etablissement</th>
-                <th>Date Début</th>
-                <th>Date Fin</th>
-                <th>Actions</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr th:each="demande :${demandes}">
-                <td th:text="${demande.id}"></td>
-                <td th:text="${demande.nom}"></td>
-                <td th:text="${demande.prenom}"></td>
-                <td th:text="${demande.email}"></td>
-                <td th:text="${demande.filiere}"></td>
-                <td th:text="${demande.etablissement}"></td>
-                <td th:text="${demande.dateDebut}"></td>
-                <td th:text="${demande.dateFin}"></td>
 
-                <td >
-                  <table>
-                    <tr>
-                      <td>
-                        <form th:action="@{/demande/{demandeId}/accepter(demandeId=${demande.id})}" method="post">
-                          <button class="button button-accept" type="submit">Accepter</button>
-                        </form>
-                      </td>
-                      <td>
-                        <form th:action="@{/demande/{demandeId}/refuser(demandeId=${demande.id})}" method="post">
-                          <button class="button button-reject" type="submit">Refuser</button>
-                        </form>
-                      </td>
-                      <td>
-                        <form th:action="@{/demande/{demandeId}/attente(demandeId=${demande.id})}" method="post">
-                          <button class="button button-pending" type="submit">Mettre en Attente</button>
-                        </form>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <!-- Ajoutez d'autres lignes similaires ici -->
-              </tbody>
-            </table>
           </div>
-
-          <!-- end dashboard inner -->
         </div>
       </div>
+      <!-- Liste Demande -->
+      <div class="table-wrapper">
+        <table class="fl-table">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>filière</th>
+            <th>Etablissement</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th>Date De Naissance</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="demande :${resultatsRecherche}">
+            <td th:text="${demande.id}"></td>
+            <td th:text="${demande.nom}"></td>
+            <td th:text="${demande.prenom}"></td>
+            <td th:text="${demande.email}"></td>
+            <td th:text="${demande.filiere}"></td>
+            <td th:text="${demande.etablissement}"></td>
+            <td th:text="${demande.dateDebut}"></td>
+            <td th:text="${demande.dateFin}"></td>
+            <td th:text="${demande.date_naissance}"></td>
+          </tr>
+
+
+          <!-- Ajoutez d'autres lignes similaires ici -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- end dashboard inner -->
     </div>
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- wow, animation -->
-    <script src="js/animate.js"></script>
-    <!-- select country -->
-    <script src="js/bootstrap-select.js"></script>
-    <!-- owl carousel -->
-    <script src="js/owl.carousel.js"></script>
-    <!-- chart js -->
-    <script src="js/Chart.min.js"></script>
-    <script src="js/Chart.bundle.min.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/analyser.js"></script>
-    <!-- nice scrollbar -->
-    <script src="js/perfect-scrollbar.min.js"></script>
-    <script>
-      var ps = new PerfectScrollbar('#sidebar');
-    </script>
-    <!-- custom js -->
-    <script src="js/custom.js"></script>
-    <script src="js/chart_custom_style1.js"></script>
+  </div>
+</div>
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- wow, animation -->
+<script src="js/animate.js"></script>
+<!-- select country -->
+<script src="js/bootstrap-select.js"></script>
+<!-- owl carousel -->
+<script src="js/owl.carousel.js"></script>
+<!-- chart js -->
+<script src="js/Chart.min.js"></script>
+<script src="js/Chart.bundle.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/analyser.js"></script>
+<!-- nice scrollbar -->
+<script src="js/perfect-scrollbar.min.js"></script>
+<script>
+  var ps = new PerfectScrollbar('#sidebar');
+</script>
+<!-- custom js -->
+<script src="js/custom.js"></script>
+<script src="js/chart_custom_style1.js"></script>
 
 
 

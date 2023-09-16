@@ -25,6 +25,12 @@ public interface DemandeService {
     Resource loadCVFile(Demande demande);
 
     Resource loadLettreFile(Demande demande);
+
+    List<Demande> rechercherDemandesParNom(String nomRecherche);
+
+
     // Ajoutez d'autres méthodes nécessaires
+
+
 }
 

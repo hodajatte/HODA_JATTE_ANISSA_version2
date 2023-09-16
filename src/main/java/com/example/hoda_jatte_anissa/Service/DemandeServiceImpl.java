@@ -10,6 +10,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,6 +38,7 @@ public class DemandeServiceImpl implements DemandeService {
 
     @Override
     public Demande getDemandeById(Long id) {
+
         return demandeRepository.findById(id).orElse(null);
     }
 
@@ -58,6 +60,7 @@ public class DemandeServiceImpl implements DemandeService {
             demandeRepository.save(demande);
         }
     }
+
     @Override
     public void refuserDemande(Long demandeId) {
         Demande demande = demandeRepository.findById(demandeId).orElse(null);
@@ -70,6 +73,7 @@ public class DemandeServiceImpl implements DemandeService {
             demandeRepository.save(demande);
         }
     }
+
     @Override
     public void mettreEnAttente(Long demandeId) {
         Demande demande = demandeRepository.findById(demandeId).orElse(null);
@@ -99,15 +103,6 @@ public class DemandeServiceImpl implements DemandeService {
     }
 
 
-
-
-
-
-
-
-
-
-
     @Override
     public Resource loadCVFile(Demande demande) {
         String cvFileName = demande.getCvFile().getOriginalFilename();
@@ -122,4 +117,15 @@ public class DemandeServiceImpl implements DemandeService {
         return new FileSystemResource(lettreFilePath);
     }
 
+
+
+    public List<Demande> rechercherDemandesParNom(String nomRecherche) {
+        // Utilisez votre repository pour rechercher les demandes par nom
+        return demandeRepository.findByNomContaining(nomRecherche);
+    }
+
+
+
 }
+
+
