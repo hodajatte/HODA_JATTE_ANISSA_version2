@@ -78,7 +78,7 @@ body {
 }
 
 .form-submit {
-    background-color: #ff5722;
+    background-color: #66CDAA;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -180,5 +180,5 @@ body {
     font-family: 'Times New Roman', serif; /* Police de caractères du titre */
     font-weight: bold; /* Épaisseur de la police */
     text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
-    color: #daa300;
+    color: #333333;
 }

@@ -177,5 +177,10 @@ h2{
 
 /***css label de  recherche */
 
+/*******css image ajouter encadrant**/
+.white-image {
+    filter: brightness(0) invert(1);
+}
+
 
 

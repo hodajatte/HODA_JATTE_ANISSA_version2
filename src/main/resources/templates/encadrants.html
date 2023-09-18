@@ -47,7 +47,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-
+  <!-- css ListeDemande-->
+  <link rel="stylesheet" href="ListeDemandes/ListeDemandeGeneral.css" />
 
 
 
@@ -193,8 +194,9 @@
           <div class="row column_title">
             <div class="col-md-12">
               <div class="page_title">
-                <img src="images/icon_form.png" class="iconF" alt="">
-                <h2>Inscrire Pour un Stage</h2>
+                <img src="images/edit.png" width="30" height="30" alt="Image redimensionnée à 28x28 pixels">
+
+                <h2>Ajouter Un Encadrant</h2>
               </div>
             </div>
           </div>
@@ -247,18 +249,14 @@
                         <label for="type">Spécialité </label>
                         <div class="select-list">
                           <select name="type" id="type"   placeholder="Type"  th:field="${encadrant.spécialité}" required>
-                            <option value="PFA">Génie Informatique</option>
-                            <option value="PFE">Génie Civil</option>
-                            <option value="PFA">Finance</option>
-                            <option value="PFE">Génie Electrique</option>
-                            <option value="PFA">Génie industriel</option>
+                            <option value="Génie Informatique">Génie Informatique</option>
+                            <option value="Génie Civil">Génie Civil</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Génie Electrique">Génie Electrique</option>
+                            <option value="Génie Industriel">Génie Industriel</option>
 
                           </select>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="niveau_scolaire">Niveau Scolaire</label>
-                        <input type="text" class="form-input" name="niveau_scolaire" id="niveau_scolaire"    placeholder="Niveau Scolaire"  th:field="${demande.niveau_scolaire}" required/>
                       </div>
                     </div>
                     <div class="form-group">

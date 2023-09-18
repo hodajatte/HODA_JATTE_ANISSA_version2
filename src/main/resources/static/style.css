@@ -3487,3 +3487,6 @@ table.projects tr td:first-child {
 
 
 
+.collapse {
+    display: none !important;
+}
