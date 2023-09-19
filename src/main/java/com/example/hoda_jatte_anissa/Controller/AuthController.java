@@ -82,11 +82,25 @@ public class AuthController {
         return "dashboard_2";
     }*/
 
-    @GetMapping("/dashboard")
-    public String dashboard(){
-        return "dashboard";
+    @GetMapping("/dashboardAdmin")
+    public String dashboard_admin(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
+        return "dashboardAdmin";
     }
 
+    @GetMapping("/dashboardUser")
+    public String dashboard_user(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
+        return "dashboardUser";
+    }
 
 
 
