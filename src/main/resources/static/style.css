@@ -1369,16 +1369,25 @@ a[data-toggle="collapse"] {
     font-size: 16px;
 }
 
-.table_format.strp tbody th,
+/*.table_format.strp tbody th,
 .table_format.strp tbody td {
     font-size: 15px;
     padding: 20px 40px;
-    vertical-align: middle;
-    font-weight: 400;
-    transform: capitalize;
+    vertical-align:middle;
+    font-weight:400;
+    transform:capitalize;
     line-height: 1;
-    width: white-space;
-}
+    width:white-space;
+}*/
+
+
+
+
+
+
+
+
+
 
 .top_countries_section {
     background-color: #ff4748;

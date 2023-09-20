@@ -1,25 +1,21 @@
 package com.example.hoda_jatte_anissa.Controller;
 
-import com.example.hoda_jatte_anissa.Entity.DemandeEtat;
 import com.example.hoda_jatte_anissa.Entity.Encadrant;
 import com.example.hoda_jatte_anissa.Service.EncadrantService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 public class EncadrantController {
 
     @Autowired
     private EncadrantService encadrantService;
+
 
     @GetMapping("/encadrants")
     public String showDemandeStageForm(Model model) {
@@ -45,6 +41,7 @@ public class EncadrantController {
         return "edit-encadrant";
     }
 
+
     /*Enregistrer l'encadrant edité */
     @PostMapping("/save-encadrant")
     public String saveEncadrant(@ModelAttribute Encadrant encadrant) {
@@ -52,7 +49,7 @@ public class EncadrantController {
         return "redirect:/liste-encadrants";
     }
 
-    /*Supprimer Encadrant    */
+    /*Supprimer Encadrant */
 
     @GetMapping("/delete-encadrant/{id}")
     public String deleteEncadrant(@PathVariable Long id) {
