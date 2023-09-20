@@ -12,11 +12,22 @@ body {
     color: #333;
 }
 
-.container {
+/*.container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     height: 400px;
+}*/
+.container {
+
+
+
+    max-width: 500px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Style the form */
@@ -172,14 +183,69 @@ body {
     /*float: left; /* Faire flotter l'icône à gauche */
     margin-right: 10px; /* Ajoute/* La hauteur s'ajuste automatiquement pour conserver les proportions */
 }
-.page_title h2 {
+
+/*.page_title {
+    text-align: center;
+    margin-bottom: 20px;
+}*/
+
+/*.page_title img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}*/
+
+
+/*.page_title h2 {
     display: inline-block; /* Afficher le titre en ligne avec l'icône */
-    vertical-align: middle; /* Aligner verticalement le titre avec l'icône */
+   /* vertical-align: middle; /* Aligner verticalement le titre avec l'icône */
+   /* color: #333; /* Couleur du texte du titre */
+   /* font-size: 24px; /* Taille de police du titre */
+    /*font-family: 'Times New Roman', serif; /* Police de caractères du titre */
+   /* font-weight: bold; /* Épaisseur de la police */
+   /* text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    color: #333333;
+}*/
+
+
+
+
+/*.page_title h2 {*/
+
+
+    /*display: inline-block;
+
+
+
+    vertical-align: middle;
+    color: #333;
+    font-size: 24px;
+
+
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0, 0, 0, 0.15);
+
+
+    color: #333333;
+}*/
+
+/* Other CSS styles (your existing styles) ... */
+
+
+
+
+
+.page_title i {
+    margin-right: 10px; /* Espacement entre l'icône et le texte, ajustez selon vos besoins */
+}
+
+
+.custom_title {
     color: #333; /* Couleur du texte du titre */
-    font-size: 24px; /* Taille de police du titre */
     font-family: 'Times New Roman', serif; /* Police de caractères du titre */
     font-weight: bold; /* Épaisseur de la police */
     text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
-    color: #333333;
 }
 

@@ -12,6 +12,7 @@ public class EncadrantServiceImpl implements EncadrantService{
     private EncadrantRepository encadrantRepository;
     @Override
     public List<Encadrant> getAllEncadrants() {
+
         return encadrantRepository.findAll();
     }
     @Override
@@ -29,4 +30,9 @@ public class EncadrantServiceImpl implements EncadrantService{
         encadrantRepository.deleteById(id);
     }
 
+
+    public List<Encadrant> rechercherEncadrantParSpecialite(String SpecialiteRecherche) {
+        // Utilisez votre repository pour rechercher les demandes par nom
+        return encadrantRepository.findBySpecialiteContaining(SpecialiteRecherche);
+    }
 }

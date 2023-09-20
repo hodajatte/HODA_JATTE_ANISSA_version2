@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <!-- site css -->
   <link rel="stylesheet" href="style.css" />
+
   <!-- responsive css -->
   <link rel="stylesheet" href="css/responsive.css" />
   <!-- color css -->
@@ -43,27 +44,22 @@
   <link rel="stylesheet" type="text/css" href="Formulaire/formulaire2.css">
 
   <script src="Formulaire/formulaireJs.js"></script>
+  <!-- Exemple de lien vers un fichier CSS -->
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-  <!-- css ListeDemande-->
+  <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+
+
+<!-- css ListeDemande-->
   <link rel="stylesheet" href="ListeDemandes/ListeDemandeGeneral.css" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">-->
 
 
 
 
-  <!-- jQuery -->
-  <!--
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <-- Datepicker CSS -->
-  <!--
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">
-  rest of your stylesheets ... -->
+
 
 
 
@@ -116,16 +112,16 @@
           <li><a th:href="@{/liste-encadrants}"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f1f5f8}</style><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg><span class="title">Liste Encadrants</span></a></li>
 
 
-            <ul class="collapse list-unstyled" id="element">
+          <ul class="collapse list-unstyled" id="element">
 
-            </ul>
+          </ul>
           </li>
 
-            <ul class="collapse list-unstyled" id="apps">
+          <ul class="collapse list-unstyled" id="apps">
 
-              <li><a href="calendar.html">> <span>Calendar</span></a></li>
+            <li><a href="calendar.html">> <span>Calendar</span></a></li>
 
-            </ul>
+          </ul>
           </li>
 
           <li>
@@ -197,7 +193,7 @@
               <!-- <img src="images/signup-bg.jpg" alt=""> -->
               <div class="container">
                 <div class="signup-content">
-                  <form  th:action="@{/encadrants}"   th:object="${encadrant}" method="post" class="signup-form" >
+                  <form  th:action="@{/save-encadrant}"   th:object="${encadrant}" method="post" class="signup-form" >
                     <div class="form-row">
                       <div class="form-group">
                         <label for="nom">Nom</label>
@@ -252,12 +248,7 @@
                   </form>
 
                   <!-- Afficher la notification si l'attribut "notification" est présent -->
-                  <div th:if="${notification }">
-                    <div class="notification-box">
-                      <p>Encadrant ajouté.</p>
-                      <button class="close-notification" onclick="closeNotification()">Fermer</button>
-                    </div>
-                  </div>
+
 
                 </div>
               </div>
@@ -443,9 +434,10 @@
   </script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
+
   <!-- calendar file css -->
   <script src="js/semantic.min.js"></script>
-  <script></script>
+
 
 
 </div>
@@ -521,65 +513,6 @@
 
 
 
-<!--
-
-
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-      const notificationIcon = document.getElementById("notificationIcon");
-      const notificationBadge = document.getElementById("notificationBadge");
-
-      let notificationCount = 0;
-
-      notificationIcon.addEventListener("click", function () {
-         if (notificationCount > 0) {
-            alert("Votre demande a bien été enregistrée.");
-            notificationCount = 0;
-            notificationBadge.textContent = notificationCount;
-         }
-      });
-
-      // Vous pouvez appeler cette fonction chaque fois que vous enregistrez une demande
-      function incrementNotificationCount() {
-         notificationCount++;
-         notificationBadge.textContent = notificationCount;
-      }
-
-      // Appel de la fonction pour incrémenter le compteur lorsqu'une demande est enregistrée
-      // Ici, vous devez appeler cette fonction après avoir enregistré la demande avec succès
-      incrementNotificationCount();
-   });
-
-   function closeNotification() {
-      const notificationBox = document.querySelector(".notification-box");
-      notificationBox.style.display = "none";
-   }
-</script>
-!-->
-<!--
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-      const submitButton = document.getElementById("submit");
-
-      submitButton.addEventListener("click", function () {
-         alert("Votre demande a bien été enregistrée.");
-      });
-   });
-</script>
-!-->
-
-
-<!-- Assurez-vous que jQuery est inclus dans votre page -->
-
-<!-- Votre code JavaScript -->
-
-
-
-
-
-
-
-
 
 
 
@@ -620,32 +553,7 @@
 
 ----!-->
 
-<script>
-  /*$(document).ready(function () {
-     // Code JavaScript pour afficher l'alerte de succès
-     if (window.location.href.indexOf("success=true") > -1) {
-        $("#successAlert").show();
-     }
-  });
-  function closeNotification() {
-     // Ciblez l'élément avec la classe notification-box et masquez-le
-     $(".notification-box").hide();
-  }*/
-  $(document).ready(function () {
-    // Code JavaScript pour afficher l'alerte de succès
-    if (window.location.href.indexOf("success=true") > -1) {
-      $("#successAlert").show();
 
-      // Ajouter un délai de 2 secondes avant de masquer l'alerte
-      setTimeout(function () {
-        $("#successAlert").hide();
-      }, 2000); // 2000 millisecondes équivalent à 2 secondes
-    }
-  });
-
-
-
-</script>
 
 </body>
 </html>

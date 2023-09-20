@@ -10,4 +10,6 @@ public interface EncadrantService {
     Encadrant getEncadrantById(Long id);
 
     void deleteEncadrant(Long id);
+
+    public List<Encadrant> rechercherEncadrantParSpecialite(String SpecialiteRecherche);
 }
