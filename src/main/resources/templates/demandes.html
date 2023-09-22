@@ -205,6 +205,9 @@
                 <th>Etablissement</th>
                 <th>Date Début</th>
                 <th>Date Fin</th>
+                <th>CV</th>
+                <th>Lettre motivation</th>
+
                 <th>Actions</th>
               </tr>
               </thead>
@@ -218,6 +221,9 @@
                 <td th:text="${demande.etablissement}"></td>
                 <td th:text="${demande.dateDebut}"></td>
                 <td th:text="${demande.dateFin}"></td>
+                <td><a th:href="@{/demande/{demandeId}/download-cv(demandeId=${demande.id})}">Télécharger CV</a></td>
+                <td><a th:href="@{/demande/{demandeId}/download-lettre(demandeId=${demande.id})}">Télécharger Lettre</a></td>
+
 
                 <td >
                   <table>

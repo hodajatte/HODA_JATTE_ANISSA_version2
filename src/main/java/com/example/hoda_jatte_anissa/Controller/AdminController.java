@@ -1,7 +1,10 @@
 package com.example.hoda_jatte_anissa.Controller;
 import com.example.hoda_jatte_anissa.Entity.DemandeEtat;
 import com.example.hoda_jatte_anissa.Service.DemandeService;
+import org.springframework.core.io.Resource;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
@@ -101,6 +104,24 @@ public class AdminController {
         model.addAttribute("resultatsRecherche", resultatsRecherche);
 
         return "resultats";
+    }
+
+    @GetMapping("/demande/{demandeId}/download-cv")
+    public ResponseEntity<Resource> downloadCV(@PathVariable Long demandeId) {
+        Demande demande = demandeService.getDemandeById(demandeId);
+        Resource cvFile = demandeService.loadCVFile(demande);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + cvFile.getFilename() + "\"")
+                .body(cvFile);
+    }
+
+    @GetMapping("/demande/{demandeId}/download-lettre")
+    public ResponseEntity<Resource> downloadLettre(@PathVariable Long demandeId) {
+        Demande demande = demandeService.getDemandeById(demandeId);
+        Resource lettreFile = demandeService.loadLettreFile(demande);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + lettreFile.getFilename() + "\"")
+                .body(lettreFile);
     }
 
 
